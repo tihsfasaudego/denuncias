@@ -1,0 +1,452 @@
+/* HSFA Print Styles - Otimizado para impressão de relatórios com melhor contraste */
+
+/* Cores otimizadas para impressão */
+:root {
+    --print-primary: #01717B;
+    --print-primary-dark: #004348;
+    --print-secondary: #2E3A55;
+    --print-text: #000000;
+    --print-text-soft: #374151;
+    --print-bg-light: #F8F9FA;
+    --print-border: #D1D5DB;
+    --print-success: #059669;
+    --print-warning: #D97706;
+    --print-alert: #DC2626;
+    --print-info: #0284C7;
+}
+
+/* Ocultar elementos não essenciais para impressão */
+@media print {
+    header, footer, .admin-header, .admin-footer, .sidebar, #theme-toggle, 
+    .btn-toggle-menu, .btn, nav, .no-print, .theme-toggle, .navbar {
+        display: none !important;
+    }
+    
+    body {
+        background-color: white !important;
+        color: var(--print-text) !important;
+        font-size: 11pt;
+        line-height: 1.5;
+        margin: 0;
+        padding: 0 !important;
+        width: 100% !important;
+        font-family: 'Arial', 'Helvetica', sans-serif !important;
+    }
+    
+    .wrapper, .content, .admin-main, main {
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    /* Cabeçalho de página melhorado */
+    .relatorio-header {
+        margin-bottom: 20mm;
+        border-bottom: 2pt solid var(--print-primary);
+        padding-bottom: 5mm;
+        text-align: center;
+    }
+    
+    .relatorio-header img {
+        max-width: 50mm;
+        height: auto;
+        display: block;
+        margin: 0 auto 10mm auto;
+    }
+    
+    .relatorio-header h1 {
+        color: var(--print-primary) !important;
+        font-size: 18pt;
+        font-weight: bold;
+        margin: 5mm 0;
+        text-align: center;
+    }
+    
+    .relatorio-header p {
+        color: var(--print-secondary) !important;
+        font-size: 12pt;
+        margin: 2mm 0;
+    }
+    
+    /* Detalhes da denúncia com melhor contraste */
+    .denuncia-header {
+        background-color: var(--print-bg-light) !important;
+        border: 2pt solid var(--print-primary) !important;
+        border-left: 5pt solid var(--print-primary) !important;
+        padding: 10pt;
+        margin-bottom: 10mm;
+        page-break-inside: avoid;
+    }
+    
+    .denuncia-header h2, .denuncia-header h3 {
+        color: var(--print-primary) !important;
+        margin-top: 0;
+        font-weight: bold;
+    }
+    
+    /* Resumo estatístico melhorado */
+    .resumo {
+        background-color: var(--print-bg-light) !important;
+        border: 1pt solid var(--print-border) !important;
+        border-left: 5pt solid var(--print-primary) !important;
+        padding: 10pt;
+        margin: 5mm 0 10mm 0;
+        page-break-inside: avoid;
+    }
+    
+    .resumo h3 {
+        color: var(--print-primary) !important;
+        font-size: 14pt;
+        font-weight: bold;
+        margin-top: 0;
+        margin-bottom: 5mm;
+    }
+    
+    .resumo-data {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    
+    .resumo-item {
+        flex: 0 0 48%;
+        margin-bottom: 5mm;
+        font-weight: 500;
+    }
+    
+    .resumo-item strong {
+        color: var(--print-text) !important;
+        font-weight: bold;
+    }
+    
+    /* Evolução da denúncia */
+    .evolucao {
+        margin-bottom: 10mm;
+        border: 1pt solid var(--print-border) !important;
+        border-left: 3pt solid var(--print-primary) !important;
+        padding: 8pt;
+        background-color: white !important;
+        page-break-inside: avoid;
+    }
+    
+    .evolucao-data {
+        color: var(--print-secondary) !important;
+        font-weight: bold;
+        font-size: 10pt;
+    }
+    
+    .evolucao-admin {
+        color: var(--print-text-soft) !important;
+        font-style: italic;
+        font-size: 10pt;
+    }
+    
+    .evolucao-content {
+        color: var(--print-text) !important;
+        margin-top: 5pt;
+        line-height: 1.4;
+    }
+    
+    /* Status com cores contrastantes */
+    .status-pendente {
+        background-color: #FEF3C7 !important;
+        border: 1pt solid var(--print-warning) !important;
+        color: #92400E !important;
+        padding: 3pt 6pt;
+        border-radius: 3pt;
+        font-weight: bold;
+    }
+    
+    .status-analise, .status-em-analise, .status-investigação, .status-em-investigacao {
+        background-color: #DBEAFE !important;
+        border: 1pt solid var(--print-info) !important;
+        color: #1E40AF !important;
+        padding: 3pt 6pt;
+        border-radius: 3pt;
+        font-weight: bold;
+    }
+    
+    .status-concluida, .status-concluída {
+        background-color: #D1FAE5 !important;
+        border: 1pt solid var(--print-success) !important;
+        color: #065F46 !important;
+        padding: 3pt 6pt;
+        border-radius: 3pt;
+        font-weight: bold;
+    }
+    
+    .status-arquivada {
+        background-color: #F3F4F6 !important;
+        border: 1pt solid #6B7280 !important;
+        color: #374151 !important;
+        padding: 3pt 6pt;
+        border-radius: 3pt;
+        font-weight: bold;
+    }
+    
+    /* Tabelas melhoradas */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 5mm 0 10mm 0;
+        page-break-inside: avoid;
+        border: 1pt solid var(--print-border);
+    }
+    
+    table thead th {
+        background-color: var(--print-primary) !important;
+        color: white !important;
+        border: 1pt solid var(--print-primary) !important;
+        text-align: left;
+        padding: 8pt;
+        font-weight: bold;
+        font-size: 11pt;
+    }
+    
+    table tbody td {
+        border: 1pt solid var(--print-border);
+        padding: 6pt;
+        font-size: 10pt;
+        vertical-align: top;
+    }
+    
+    table tbody tr:nth-child(even) {
+        background-color: var(--print-bg-light) !important;
+    }
+    
+    /* Cards e containers */
+    .card, .dashboard-card, .denuncia-card {
+        border: 1pt solid var(--print-border) !important;
+        background-color: white !important;
+        margin-bottom: 8mm !important;
+        padding: 8pt !important;
+        box-shadow: none !important;
+        page-break-inside: avoid;
+    }
+    
+    .card-header {
+        background-color: var(--print-bg-light) !important;
+        border-bottom: 1pt solid var(--print-border) !important;
+        color: var(--print-primary) !important;
+        font-weight: bold;
+        padding: 6pt !important;
+        margin: -8pt -8pt 8pt -8pt !important;
+    }
+    
+    .card-body {
+        color: var(--print-text) !important;
+    }
+    
+    /* Quebras de página */
+    .page-break {
+        page-break-after: always;
+    }
+    
+    .avoid-break {
+        page-break-inside: avoid;
+    }
+    
+    /* Links visíveis */
+    a {
+        color: var(--print-primary) !important;
+        text-decoration: underline;
+        font-weight: 500;
+    }
+    
+    a[href]:after {
+        content: " (" attr(href) ")";
+        font-size: 9pt;
+        color: var(--print-text-soft) !important;
+    }
+    
+    /* Rodapé do relatório */
+    .relatorio-footer {
+        margin-top: 15mm;
+        padding-top: 5mm;
+        border-top: 1pt solid var(--print-primary);
+        font-size: 9pt;
+        color: var(--print-text-soft) !important;
+        text-align: center;
+        page-break-inside: avoid;
+    }
+    
+    /* Assinaturas */
+    .assinaturas {
+        margin-top: 20mm;
+        display: flex;
+        justify-content: space-around;
+        page-break-inside: avoid;
+    }
+    
+    .assinatura {
+        text-align: center;
+        min-width: 70mm;
+    }
+    
+    .assinatura-linha {
+        border-top: 1pt solid var(--print-text);
+        margin-top: 15mm;
+        margin-bottom: 5mm;
+    }
+    
+    .assinatura-nome {
+        font-weight: bold;
+        color: var(--print-text) !important;
+    }
+    
+    .assinatura-cargo {
+        color: var(--print-text-soft) !important;
+        font-size: 9pt;
+    }
+    
+    /* Badges e status impressos */
+    .badge {
+        border: 1pt solid !important;
+        padding: 2pt 4pt !important;
+        font-size: 9pt !important;
+        font-weight: bold !important;
+        border-radius: 2pt !important;
+    }
+    
+    .badge-success {
+        background-color: #D1FAE5 !important;
+        border-color: var(--print-success) !important;
+        color: #065F46 !important;
+    }
+    
+    .badge-danger {
+        background-color: #FEE2E2 !important;
+        border-color: var(--print-alert) !important;
+        color: #991B1B !important;
+    }
+    
+    .badge-warning {
+        background-color: #FEF3C7 !important;
+        border-color: var(--print-warning) !important;
+        color: #92400E !important;
+    }
+    
+    .badge-info {
+        background-color: #DBEAFE !important;
+        border-color: var(--print-info) !important;
+        color: #1E40AF !important;
+    }
+    
+    /* Imagens e logos */
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    }
+    
+    /* Títulos e subtítulos */
+    h1, h2, h3, h4, h5, h6 {
+        color: var(--print-primary) !important;
+        page-break-after: avoid;
+        margin-top: 8mm;
+        margin-bottom: 4mm;
+    }
+    
+    h1 {
+        font-size: 18pt;
+        border-bottom: 2pt solid var(--print-primary);
+        padding-bottom: 2mm;
+    }
+    
+    h2 {
+        font-size: 16pt;
+        border-bottom: 1pt solid var(--print-border);
+        padding-bottom: 1mm;
+    }
+    
+    h3 {
+        font-size: 14pt;
+    }
+    
+    /* Listas */
+    ul, ol {
+        margin: 4mm 0;
+        padding-left: 8mm;
+    }
+    
+    li {
+        margin-bottom: 1mm;
+        line-height: 1.4;
+    }
+    
+    /* Texto destacado */
+    strong, b {
+        color: var(--print-text) !important;
+        font-weight: bold;
+    }
+    
+    em, i {
+        color: var(--print-text-soft) !important;
+        font-style: italic;
+    }
+}
+
+/* Configuração da página */
+@page {
+    size: A4;
+    margin: 2cm;
+    @top-center {
+        content: "Hospital São Francisco de Assis - Sistema de Denúncias";
+        font-size: 9pt;
+        color: var(--print-text-soft);
+    }
+    @bottom-center {
+        content: "Página " counter(page) " de " counter(pages);
+        font-size: 9pt;
+        color: var(--print-text-soft);
+    }
+}
+
+/* Estilos base para impressão */
+body {
+    font-family: 'Arial', 'Helvetica', sans-serif;
+    line-height: 1.5;
+    color: var(--print-text);
+    background-color: white !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+}
+
+/* Esconder elementos que não devem ser impressos */
+.sidebar, 
+.admin-header, 
+.admin-footer, 
+.btn, 
+.no-print, 
+.theme-toggle, 
+nav, 
+header, 
+footer,
+.navbar {
+    display: none !important;
+}
+
+.wrapper {
+    display: block !important;
+}
+
+.content {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+}
+
+.admin-main {
+    padding: 0 !important;
+}
+
+/* Quebras de página */
+.page-break {
+    page-break-after: always;
+}
+
+.avoid-break {
+    page-break-inside: avoid;
+} 

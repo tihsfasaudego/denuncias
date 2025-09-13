@@ -1,0 +1,1345 @@
+/* 
+ * HSFA Theme - Hospital São Francisco de Assis
+ * Theme for Canal de Denúncias 
+ * Versão otimizada para acessibilidade WCAG AA
+ */
+
+/* ---------- CSS Variables/Custom Properties ---------- */
+:root {
+  /* Paleta de cores oficial HSFA - Melhorada para acessibilidade */
+  --hsfa-primary: #01717B; /* Verde-azulado institucional */
+  --hsfa-primary-light: #4A9AA1; /* Versão mais clara para melhor contraste */
+  --hsfa-primary-dark: #004348; /* Versão mais escura para contraste */
+  --hsfa-secondary: #2E3A55; /* Azul-escuro */
+  --hsfa-secondary-light: #4F5B7A; /* Versão clara melhorada */
+  --hsfa-secondary-dark: #1A2332; /* Versão escura melhorada */
+  
+  /* Cores de texto otimizadas */
+  --hsfa-text: #0A0A0A; /* Preto melhorado para contraste */
+  --hsfa-text-light: #FFFFFF; /* Branco puro */
+  --hsfa-text-soft: #374151; /* Cinza escuro legível */
+  --hsfa-text-muted: #6B7280; /* Cinza médio com melhor contraste */
+  
+  /* Cores de fundo melhoradas */
+  --hsfa-bg-soft: #E5F4F3; /* Verde-claro pastel melhorado */
+  --hsfa-bg-sec: #F8F9F2; /* Bege-claro melhorado */
+  --hsfa-neutral: #374151; /* Cinza-escuro melhorado */
+  
+  /* Cores de status com melhor contraste */
+  --hsfa-success: #059669; /* Verde escuro legível */
+  --hsfa-success-light: #D1FAE5; /* Fundo claro para sucesso */
+  --hsfa-alert: #DC2626; /* Vermelho escuro legível */
+  --hsfa-alert-light: #FEE2E2; /* Fundo claro para alerta */
+  --hsfa-warning: #D97706; /* Laranja escuro legível */
+  --hsfa-warning-light: #FEF3C7; /* Fundo claro para aviso */
+  --hsfa-info: #0284C7; /* Azul informativo */
+  --hsfa-info-light: #E0F2FE; /* Fundo claro para info */
+  
+  /* Cores específicas melhoradas */
+  --hsfa-meta: #B45309; /* Amarelo escuro para melhor contraste */
+  --hsfa-meta-light: #FEF3C7; /* Fundo amarelo claro */
+  
+  /* Variáveis para elementos de UI */
+  --bg-body: #F9FAFB; /* Fundo padrão melhorado */
+  --bg-card: #FFFFFF; /* Fundo de cards */
+  --bg-header: var(--hsfa-secondary);
+  --bg-footer: var(--hsfa-secondary);
+  --bg-sidebar: var(--hsfa-secondary);
+  --sidebar-active: rgba(1, 113, 123, 0.15);
+  --sidebar-hover: var(--hsfa-primary);
+  --heading-primary: var(--hsfa-primary);
+  --heading-secondary: var(--hsfa-secondary);
+  --text-color: var(--hsfa-text);
+  --border-color: #D1D5DB; /* Borda mais suave */
+  --border-light: #E5E7EB; /* Borda clara */
+  --link-color: var(--hsfa-primary);
+  --link-hover: var(--hsfa-primary-dark);
+  --input-bg: #FFFFFF;
+  --input-border: #D1D5DB;
+  --input-focus: var(--hsfa-primary);
+  --footer-bg: var(--hsfa-secondary);
+  --footer-text: var(--hsfa-text-light);
+  --card-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --card-hover-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  
+  /* Estados de foco aprimorados */
+  --focus-ring: 0 0 0 3px rgba(1, 113, 123, 0.3);
+  --focus-visible-outline: 2px solid var(--hsfa-primary);
+}
+
+/* Dark Mode Theme Variables - Melhorado para acessibilidade */
+[data-theme="dark"] {
+  --bg-body: #0F172A; /* Fundo escuro melhorado */
+  --bg-card: #1E293B; /* Cards escuros com melhor contraste */
+  --text-color: #F1F5F9; /* Texto claro melhorado */
+  --hsfa-text-soft: #CBD5E1; /* Texto suave para modo escuro */
+  --hsfa-text-muted: #94A3B8; /* Texto muted melhorado */
+  --heading-primary: #7DD3FC; /* Azul claro para títulos */
+  --heading-secondary: #E2E8F0; /* Cinza claro para subtítulos */
+  --border-color: #475569; /* Bordas escuras melhoradas */
+  --border-light: #334155; /* Bordas claras para modo escuro */
+  --input-bg: #334155; /* Fundo de inputs escuro */
+  --input-border: #475569; /* Borda de inputs escura */
+  --sidebar-bg: #1E293B;
+  --sidebar-hover: #0EA5E9; /* Hover melhorado para sidebar */
+  --sidebar-active: rgba(14, 165, 233, 0.2);
+  --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  --card-hover-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+  
+  /* Cores de status ajustadas para modo escuro */
+  --hsfa-success: #10B981;
+  --hsfa-success-light: rgba(16, 185, 129, 0.15);
+  --hsfa-alert: #EF4444;
+  --hsfa-alert-light: rgba(239, 68, 68, 0.15);
+  --hsfa-warning: #F59E0B;
+  --hsfa-warning-light: rgba(245, 158, 11, 0.15);
+  --hsfa-info: #3B82F6;
+  --hsfa-info-light: rgba(59, 130, 246, 0.15);
+  --hsfa-meta: #EAB308;
+  --hsfa-meta-light: rgba(234, 179, 8, 0.15);
+  
+  /* Focus melhorado para modo escuro */
+  --focus-ring: 0 0 0 3px rgba(125, 211, 252, 0.4);
+  --focus-visible-outline: 2px solid #7DD3FC;
+}
+
+/* ---------- Base Styles ---------- */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', 'Open Sans', sans-serif;
+  font-weight: 400;
+  color: var(--text-color);
+  background-color: var(--bg-body);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.6;
+}
+
+main {
+  flex: 1;
+  padding: 1.5rem 0;
+}
+
+/* ---------- Typography ---------- */
+h1, h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: var(--heading-primary);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+h3, h4 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 600;
+  color: var(--heading-secondary);
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+
+h5, h6 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 600;
+  color: var(--heading-secondary);
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+p {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+.text-muted {
+  color: var(--hsfa-text-muted) !important;
+}
+
+.text-soft {
+  color: var(--hsfa-text-soft) !important;
+}
+
+label, .form-label {
+  font-family: 'Inter', 'Roboto', sans-serif;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  display: block;
+  color: var(--text-color);
+}
+
+/* ---------- Components ---------- */
+
+/* Cards */
+.hsfa-card {
+  background-color: var(--bg-card);
+  border-radius: 8px;
+  box-shadow: var(--card-shadow);
+  border: 1px solid var(--border-light);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.hsfa-card:hover {
+  box-shadow: var(--card-hover-shadow);
+  transform: translateY(-1px);
+}
+
+/* Buttons */
+.hsfa-btn {
+  display: inline-block;
+  font-family: 'Inter', 'Roboto', sans-serif;
+  font-weight: 500;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 6px;
+  transition: all 0.15s ease-in-out;
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+}
+
+.hsfa-btn:focus-visible {
+  outline: var(--focus-visible-outline);
+  outline-offset: 2px;
+}
+
+.hsfa-btn:focus {
+  box-shadow: var(--focus-ring);
+}
+
+.hsfa-btn-primary {
+  background-color: var(--hsfa-primary);
+  color: var(--hsfa-text-light);
+  border: 2px solid var(--hsfa-primary);
+}
+
+.hsfa-btn-primary:hover {
+  background-color: var(--hsfa-primary-dark);
+  border-color: var(--hsfa-primary-dark);
+  color: var(--hsfa-text-light);
+}
+
+.hsfa-btn-secondary {
+  background-color: var(--hsfa-secondary);
+  color: var(--hsfa-text-light);
+  border: 2px solid var(--hsfa-secondary);
+}
+
+.hsfa-btn-secondary:hover {
+  background-color: var(--hsfa-secondary-dark);
+  border-color: var(--hsfa-secondary-dark);
+  color: var(--hsfa-text-light);
+}
+
+.hsfa-btn-success {
+  background-color: var(--hsfa-success);
+  color: var(--hsfa-text-light);
+  border: 2px solid var(--hsfa-success);
+}
+
+.hsfa-btn-success:hover {
+  background-color: #047857;
+  border-color: #047857;
+  color: var(--hsfa-text-light);
+}
+
+.hsfa-btn-alert {
+  background-color: var(--hsfa-alert);
+  color: var(--hsfa-text-light);
+  border: 2px solid var(--hsfa-alert);
+}
+
+.hsfa-btn-alert:hover {
+  background-color: #B91C1C;
+  border-color: #B91C1C;
+  color: var(--hsfa-text-light);
+}
+
+.hsfa-btn-warning {
+  background-color: var(--hsfa-warning);
+  color: var(--hsfa-text-light);
+  border: 2px solid var(--hsfa-warning);
+}
+
+.hsfa-btn-warning:hover {
+  background-color: #B45309;
+  border-color: #B45309;
+  color: var(--hsfa-text-light);
+}
+
+.hsfa-btn-outline {
+  background-color: transparent;
+  border: 2px solid var(--hsfa-primary);
+  color: var(--hsfa-primary);
+}
+
+.hsfa-btn-outline:hover {
+  background-color: var(--hsfa-primary);
+  color: var(--hsfa-text-light);
+}
+
+/* Forms */
+.hsfa-form-group {
+  margin-bottom: 1.5rem;
+}
+
+.hsfa-form-control {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--text-color);
+  background-color: var(--input-bg);
+  background-clip: padding-box;
+  border: 2px solid var(--input-border);
+  border-radius: 6px;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.hsfa-form-control:focus {
+  border-color: var(--hsfa-primary);
+  outline: 0;
+  box-shadow: var(--focus-ring);
+}
+
+.hsfa-form-control:focus-visible {
+  outline: var(--focus-visible-outline);
+  outline-offset: 2px;
+}
+
+textarea.hsfa-form-control {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.hsfa-form-check {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.hsfa-form-check-input {
+  margin-right: 0.5rem;
+  width: 1.2em;
+  height: 1.2em;
+  accent-color: var(--hsfa-primary);
+}
+
+.hsfa-form-check-input:focus-visible {
+  outline: var(--focus-visible-outline);
+  outline-offset: 2px;
+}
+
+/* Alerts */
+.hsfa-alert {
+  padding: 1rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.hsfa-alert-success {
+  background-color: var(--hsfa-success-light);
+  border-color: var(--hsfa-success);
+  color: #065F46;
+}
+
+[data-theme="dark"] .hsfa-alert-success {
+  color: #A7F3D0;
+}
+
+.hsfa-alert-danger {
+  background-color: var(--hsfa-alert-light);
+  border-color: var(--hsfa-alert);
+  color: #991B1B;
+}
+
+[data-theme="dark"] .hsfa-alert-danger {
+  color: #FECACA;
+}
+
+.hsfa-alert-warning {
+  background-color: var(--hsfa-warning-light);
+  border-color: var(--hsfa-warning);
+  color: #92400E;
+}
+
+[data-theme="dark"] .hsfa-alert-warning {
+  color: #FDE68A;
+}
+
+.hsfa-alert-info {
+  background-color: var(--hsfa-info-light);
+  border-color: var(--hsfa-info);
+  color: #1E40AF;
+}
+
+[data-theme="dark"] .hsfa-alert-info {
+  color: #BFDBFE;
+}
+
+/* ---------- Layout Components ---------- */
+
+/* Header */
+.hsfa-header {
+  background-color: var(--hsfa-secondary);
+  color: var(--hsfa-text-light);
+  height: 60px;
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.logo-link {
+  display: block;
+}
+
+.logo {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-list {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  margin-left: 1.5rem;
+}
+
+.nav-link {
+  color: var(--hsfa-text-light);
+  text-decoration: none;
+  font-family: 'Lato', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.5rem 0;
+  transition: color 0.2s;
+  position: relative;
+}
+
+.nav-link:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--hsfa-primary);
+  transition: width 0.3s;
+}
+
+.nav-link:hover {
+  color: var(--hsfa-primary);
+}
+
+.nav-link:hover:after {
+  width: 100%;
+}
+
+.navbar-toggler {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--hsfa-text-light);
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+/* Footer */
+.hsfa-footer {
+  background-color: var(--hsfa-secondary);
+  color: var(--hsfa-text-light);
+  padding: 3rem 0 1rem;
+  margin-top: auto;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 200px;
+  margin-bottom: 1.5rem;
+  padding: 0 1rem;
+}
+
+.footer-column h3 {
+  color: white;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.footer-column h3:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background-color: var(--hsfa-accent);
+}
+
+.footer-column ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-column a {
+  color: var(--hsfa-text-light);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-column a:hover {
+  color: var(--hsfa-accent);
+}
+
+.footer-column i {
+  width: 20px;
+  margin-right: 0.5rem;
+  color: var(--hsfa-primary);
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--hsfa-text-light);
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+
+.social-icons a:hover {
+  background-color: var(--hsfa-primary);
+  color: white;
+  transform: translateY(-3px);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom p {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--hsfa-secondary);
+  color: var(--hsfa-text-light);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.theme-toggle:focus {
+  outline: none;
+}
+
+.theme-toggle i {
+  font-size: 1.25rem;
+}
+
+.dark-icon {
+  display: block;
+}
+
+.light-icon {
+  display: none;
+}
+
+[data-theme="dark"] .dark-icon {
+  display: none;
+}
+
+[data-theme="dark"] .light-icon {
+  display: block;
+}
+
+/* Canal de Denúncias específico */
+.denuncia-section {
+  padding: 3rem 0;
+}
+
+.denuncia-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-card);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  border: 1px solid var(--border-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.denuncia-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--card-hover-shadow);
+}
+
+.denuncia-card-header {
+  background-color: var(--hsfa-primary);
+  padding: 1.5rem;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+.denuncia-card-header i {
+  font-size: 2rem;
+  margin-right: 1rem;
+}
+
+.denuncia-card-header h2 {
+  margin: 0;
+  color: white;
+}
+
+.denuncia-card-body {
+  padding: 1.5rem;
+  flex-grow: 1;
+}
+
+.denuncia-card-footer {
+  padding: 1.5rem;
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+}
+
+.protocolo-box {
+  background-color: var(--hsfa-success-light);
+  border: 1px solid var(--hsfa-success);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.protocolo-number {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--hsfa-primary);
+  background-color: var(--bg-card);
+  border: 2px dashed var(--hsfa-primary);
+  padding: 0.75rem;
+  border-radius: 6px;
+  display: inline-block;
+  margin: 0.5rem 0;
+}
+
+/* ---------- Responsive Design ---------- */
+@media (max-width: 992px) {
+  .navbar-collapse {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    height: auto;
+    background-color: var(--hsfa-secondary);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    z-index: 999;
+  }
+  
+  .nav-list {
+    flex-direction: column;
+  }
+  
+  .nav-item {
+    margin: 0.5rem 0;
+    margin-left: 0;
+  }
+  
+  .navbar-toggler {
+    display: block;
+  }
+  
+  .main-nav {
+    order: 1;
+  }
+  
+  .footer-content {
+    flex-direction: column;
+  }
+  
+  .footer-column {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-content {
+    padding: 0 1rem;
+  }
+  
+  .logo {
+    height: 40px;
+  }
+  
+  .theme-toggle {
+    width: 40px;
+    height: 40px;
+    bottom: 1rem;
+    right: 1rem;
+  }
+}
+
+/* Accessibility focus styles */
+*:focus-visible {
+  outline: 3px solid var(--hsfa-primary);
+  outline-offset: 2px;
+}
+
+/* Skip to main content link for accessibility */
+.skip-to-main {
+  position: absolute;
+  left: -9999px;
+  z-index: 9999;
+  background: var(--hsfa-primary);
+  color: white;
+  padding: 1rem;
+  transform: translateY(-100%);
+  transition: transform 0.3s;
+}
+
+.skip-to-main:focus {
+  left: 0;
+  transform: translateY(0);
+}
+
+/* Admin specific styles */
+.admin-header {
+  background-color: var(--hsfa-secondary);
+  color: var(--hsfa-text-light);
+}
+
+.admin-title {
+  color: var(--hsfa-text-light);
+}
+
+.sidebar {
+  background-color: var(--hsfa-secondary);
+  border-right: 1px solid var(--border-color);
+}
+
+.menu-item a {
+  color: var(--hsfa-text-light);
+}
+
+.menu-item.active a, 
+.menu-item a:hover {
+  background-color: var(--hsfa-primary);
+  color: white;
+}
+
+.admin-footer {
+  background-color: var(--hsfa-secondary);
+  color: var(--hsfa-text-light);
+}
+
+/* HSFA Theme - Sistema de Denúncias
+ * Paleta de cores oficial HSFA aplicada ao sistema
+ */
+
+:root {
+  /* Paleta de cores oficial HSFA */
+  --hsfa-primary: #01717B; /* Verde-azulado institucional */
+  --hsfa-secondary: #2E3A55; /* Azul-escuro */
+  --hsfa-text: #060606; /* Preto quase puro */
+  --hsfa-bg-soft: #CBE9E7; /* Verde-claro pastel */
+  --hsfa-neutral: #2E2E33; /* Cinza-escuro */
+  --hsfa-gray: #828282; /* Cinza médio */
+  --hsfa-success: #F37A47; /* Laranja-avermelhado */
+  --hsfa-alert: #F05973; /* Rosa-avermelhado */
+  --hsfa-meta: #EBE84C; /* Amarelo-claro */
+  --hsfa-bg-sec: #F5F4D8; /* Bege-claro */
+  
+  /* Cores derivadas para acessibilidade e consistência */
+  --hsfa-primary-light: #CBE9E7; /* Versão clara da cor primária */
+  --hsfa-primary-dark: #015c64; /* Versão escura da cor primária */
+  --hsfa-secondary-light: #3d4e77; /* Versão clara da cor secundária */
+  --hsfa-secondary-dark: #1c2436; /* Versão escura da cor secundária */
+  --hsfa-text-light: #f8f9fa; /* Texto claro para fundos escuros */
+  --hsfa-text-soft: #4a4a4a; /* Texto suave para informações secundárias */
+  --hsfa-success-light: #ffe5dc; /* Fundo leve para mensagens de sucesso */
+  --hsfa-alert-light: #fee2e6; /* Fundo leve para alertas */
+  --hsfa-meta-light: #fdfbd9; /* Fundo leve para metas */
+  
+  /* Variáveis para elementos de UI */
+  --bg-body: #f8f9fa; /* Fundo padrão do corpo */
+  --bg-card: #ffffff; /* Fundo de cards */
+  --bg-header: var(--hsfa-secondary); /* Fundo de cabeçalho */
+  --bg-footer: var(--hsfa-secondary); /* Fundo de rodapé */
+  --bg-sidebar: var(--hsfa-secondary); /* Fundo da barra lateral */
+  --sidebar-active: rgba(1, 113, 123, 0.2); /* Estado ativo na barra */
+  --sidebar-hover: var(--hsfa-primary); /* Hover na barra lateral */
+  --heading-primary: var(--hsfa-primary); /* Títulos principais */
+  --heading-secondary: var(--hsfa-secondary); /* Subtítulos */
+  --text-color: var(--hsfa-text); /* Cor de texto padrão */
+  --border-color: var(--hsfa-gray); /* Cor de borda padrão */
+  --link-color: var(--hsfa-primary); /* Cor de links */
+  --link-hover: var(--hsfa-primary-dark); /* Cor de hover em links */
+  --input-bg: #ffffff; /* Fundo de inputs */
+  --input-border: var(--hsfa-gray); /* Borda de inputs */
+  --input-focus: var(--hsfa-primary); /* Foco em inputs */
+  --footer-bg: var(--hsfa-secondary); /* Fundo do rodapé */
+  --footer-text: var(--hsfa-text-light); /* Texto do rodapé */
+  --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Sombra de cards */
+  --card-hover-shadow: 0 8px 24px rgba(0, 0, 0, 0.12); /* Sombra hover */
+}
+
+/* Tema escuro - Adaptações */
+[data-theme="dark"] {
+  --bg-body: #121212;
+  --bg-card: #1e1e1e;
+  --text-color: #f1f1f1;
+  --heading-primary: var(--hsfa-primary-light);
+  --heading-secondary: #d1d1d1;
+  --border-color: #444;
+  --input-bg: #2a2a2a;
+  --input-border: #444;
+  --sidebar-bg: #1a1a22;
+  --sidebar-hover: var(--hsfa-primary);
+  --sidebar-active: rgba(1, 113, 123, 0.3);
+  --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  --card-hover-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos para texto e elementos básicos */
+body {
+  color: var(--text-color);
+  background-color: var(--bg-body);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--heading-primary);
+}
+
+a {
+  color: var(--link-color);
+}
+
+a:hover {
+  color: var(--link-hover);
+}
+
+/* Sobrescrever componentes Bootstrap com cores HSFA */
+.btn-primary {
+  background-color: var(--hsfa-primary);
+  border-color: var(--hsfa-primary);
+}
+
+.btn-primary:hover {
+  background-color: var(--hsfa-primary-dark);
+  border-color: var(--hsfa-primary-dark);
+}
+
+.btn-secondary {
+  background-color: var(--hsfa-secondary);
+  border-color: var(--hsfa-secondary);
+}
+
+.btn-success {
+  background-color: var(--hsfa-success);
+  border-color: var(--hsfa-success);
+}
+
+.btn-danger {
+  background-color: var(--hsfa-alert);
+  border-color: var(--hsfa-alert);
+}
+
+.btn-warning {
+  background-color: var(--hsfa-meta);
+  border-color: var(--hsfa-meta);
+  color: var(--hsfa-text);
+}
+
+/* Alertas e mensagens */
+.alert-success {
+  background-color: var(--hsfa-success-light);
+  border-color: var(--hsfa-success);
+  color: var(--hsfa-text);
+}
+
+.alert-danger {
+  background-color: var(--hsfa-alert-light);
+  border-color: var(--hsfa-alert);
+  color: var(--hsfa-text);
+}
+
+.alert-warning {
+  background-color: var(--hsfa-meta-light);
+  border-color: var(--hsfa-meta);
+  color: var(--hsfa-text);
+}
+
+/* Componentes personalizados */
+.hsfa-header, .admin-header {
+  background-color: var(--hsfa-secondary);
+  color: var(--hsfa-text-light);
+}
+
+.hsfa-footer, .admin-footer {
+  background-color: var(--hsfa-secondary);
+  color: var(--hsfa-text-light);
+}
+
+.sidebar {
+  background: var(--hsfa-secondary);
+}
+
+.sidebar-header {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.sidebar .list-unstyled li a:hover, 
+.sidebar .list-unstyled li.active > a {
+  background: var(--hsfa-primary);
+  border-left-color: var(--hsfa-meta);
+}
+
+.sidebar .list-unstyled li a i {
+  color: var(--hsfa-meta);
+}
+
+.sidebar-footer {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.btn-toggle-menu:hover {
+  color: var(--hsfa-meta);
+}
+
+/* Cards e tabelas */
+.dashboard-card {
+  background: var(--bg-card);
+  border-left-color: var(--hsfa-primary);
+}
+
+.dashboard-card.primary {
+  border-left-color: var(--hsfa-primary);
+}
+
+.dashboard-card.secondary {
+  border-left-color: var(--hsfa-secondary);
+}
+
+.dashboard-card.alert {
+  border-left-color: var(--hsfa-alert);
+}
+
+.dashboard-card.success {
+  border-left-color: var(--hsfa-success);
+}
+
+.dashboard-card.meta {
+  border-left-color: var(--hsfa-meta);
+}
+
+.table thead th {
+  background-color: rgba(1, 113, 123, 0.05);
+  border-bottom-color: var(--hsfa-primary);
+}
+
+/* Status e badges */
+.badge-success {
+  background-color: var(--hsfa-success);
+}
+
+.badge-danger {
+  background-color: var(--hsfa-alert);
+}
+
+.badge-warning {
+  background-color: var(--hsfa-meta);
+}
+
+.badge-info {
+  background-color: var(--hsfa-bg-soft);
+  color: var(--hsfa-primary);
+}
+
+/* Botões de ação */
+.btn-edit {
+  background-color: var(--hsfa-meta);
+}
+
+.btn-delete {
+  background-color: var(--hsfa-alert);
+}
+
+.btn-view {
+  background-color: var(--hsfa-bg-soft);
+  color: var(--hsfa-primary);
+}
+
+/* Formulários */
+.form-control:focus {
+  border-color: var(--hsfa-primary);
+  box-shadow: 0 0 0 0.2rem rgba(1, 113, 123, 0.25);
+}
+
+/* Alertas personalizados do HSFA */
+.hsfa-alert-success {
+  background-color: var(--hsfa-success-light);
+  border-color: var(--hsfa-success);
+  color: var(--hsfa-text);
+}
+
+.hsfa-alert-danger {
+  background-color: var(--hsfa-alert-light);
+  border-color: var(--hsfa-alert);
+  color: var(--hsfa-text);
+}
+
+/* Relatórios - impressão */
+.evolucao {
+  border-left-color: var(--hsfa-primary);
+}
+
+.denuncia-header {
+  background-color: var(--hsfa-bg-soft);
+  border-left-color: var(--hsfa-primary);
+}
+
+.resumo {
+  background-color: var(--hsfa-bg-soft);
+  border-left-color: var(--hsfa-primary);
+}
+
+.resumo h3 {
+  color: var(--hsfa-primary);
+}
+
+.status-pendente {
+  background-color: var(--hsfa-meta-light);
+  color: var(--hsfa-text);
+}
+
+.status-analise {
+  background-color: var(--hsfa-bg-soft);
+  color: var(--hsfa-primary);
+}
+
+.status-concluida {
+  background-color: var(--hsfa-success-light);
+  color: var(--hsfa-text);
+}
+
+.status-arquivada {
+  background-color: var(--hsfa-gray);
+  color: var(--hsfa-text-light);
+}
+
+/* Estilos específicos para a área de denúncias */
+.denuncia-card {
+  border-color: var(--hsfa-gray);
+  background-color: var(--bg-card);
+}
+
+.denuncia-card:hover {
+  border-color: var(--hsfa-primary);
+  box-shadow: var(--card-shadow);
+}
+
+/* Botão de tema */
+.theme-toggle {
+  background-color: var(--hsfa-secondary);
+  color: var(--hsfa-text-light);
+  border: none;
+}
+
+.theme-toggle:hover {
+  background-color: var(--hsfa-primary);
+}
+
+/* Regras adicionais para garantir que todas as cores estejam corretas */
+
+/* Links na barra de navegação */
+.nav-link:hover {
+  color: var(--hsfa-bg-soft);
+}
+
+/* Cabeçalhos de seção */
+.section-title {
+  color: var(--hsfa-primary);
+  border-bottom: 2px solid var(--hsfa-meta);
+}
+
+/* Elementos de formulário */
+.form-control {
+  border-color: var(--hsfa-gray);
+}
+
+.form-label {
+  color: var(--hsfa-secondary);
+}
+
+/* Botões personalizados */
+.custom-btn {
+  background-color: var(--hsfa-primary);
+  color: var(--hsfa-text-light);
+}
+
+.custom-btn:hover {
+  background-color: var(--hsfa-primary-dark);
+}
+
+/* Cards e containers */
+.card {
+  border-color: var(--hsfa-gray);
+  background-color: var(--bg-card);
+}
+
+.card-header {
+  background-color: var(--hsfa-bg-soft);
+  color: var(--hsfa-primary);
+}
+
+.card-footer {
+  background-color: var(--hsfa-bg-soft);
+}
+
+/* Estados de status */
+.status-badge {
+  display: inline-block;
+  padding: 0.25em 0.6em;
+  font-size: 0.75em;
+  font-weight: 700;
+  border-radius: 0.25rem;
+}
+
+.status-badge.pendente {
+  background-color: var(--hsfa-meta);
+  color: var(--hsfa-text);
+}
+
+.status-badge.analise {
+  background-color: var(--hsfa-bg-soft);
+  color: var(--hsfa-primary);
+}
+
+.status-badge.concluida {
+  background-color: var(--hsfa-success);
+  color: var(--hsfa-text-light);
+}
+
+.status-badge.arquivada {
+  background-color: var(--hsfa-neutral);
+  color: var(--hsfa-text-light);
+}
+
+/* Paginação */
+.page-link {
+  color: var(--hsfa-primary);
+}
+
+.page-link:hover {
+  background-color: var(--hsfa-bg-soft);
+  color: var(--hsfa-primary-dark);
+}
+
+.page-item.active .page-link {
+  background-color: var(--hsfa-primary);
+  border-color: var(--hsfa-primary);
+}
+
+/* Tabelas adicionais */
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: var(--hsfa-bg-soft);
+}
+
+.table-hover tbody tr:hover {
+  background-color: var(--hsfa-bg-soft);
+}
+
+/* Ícones */
+.icon-primary {
+  color: var(--hsfa-primary);
+}
+
+.icon-secondary {
+  color: var(--hsfa-secondary);
+}
+
+.icon-success {
+  color: var(--hsfa-success);
+}
+
+.icon-warning {
+  color: var(--hsfa-meta);
+}
+
+.icon-danger {
+  color: var(--hsfa-alert);
+}
+
+/* Tooltips */
+.tooltip-inner {
+  background-color: var(--hsfa-secondary);
+}
+
+.bs-tooltip-top .arrow::before {
+  border-top-color: var(--hsfa-secondary);
+}
+
+.bs-tooltip-bottom .arrow::before {
+  border-bottom-color: var(--hsfa-secondary);
+}
+
+/* Modais */
+.modal-header {
+  background-color: var(--hsfa-secondary);
+  color: var(--hsfa-text-light);
+}
+
+.modal-footer {
+  background-color: var(--hsfa-bg-soft);
+}
+
+/* Links de navegação no admin */
+.sidebar-link {
+  color: var(--hsfa-text-light);
+}
+
+.sidebar-link:hover, 
+.sidebar-link.active {
+  background-color: var(--hsfa-primary);
+  color: var(--hsfa-text-light);
+}
+
+/* Tela de login */
+.login-card {
+  background-color: var(--bg-card);
+  border-top: 4px solid var(--hsfa-primary);
+}
+
+.login-title {
+  color: var(--hsfa-primary);
+}
+
+/* Dropdown menus */
+.dropdown-menu {
+  background-color: var(--bg-card);
+  border-color: var(--hsfa-gray);
+}
+
+.dropdown-item:hover {
+  background-color: var(--hsfa-bg-soft);
+  color: var(--hsfa-primary);
+}
+
+/* Barra de progresso */
+.progress-bar {
+  background-color: var(--hsfa-primary);
+}
+
+.progress-bar-success {
+  background-color: var(--hsfa-success);
+}
+
+.progress-bar-warning {
+  background-color: var(--hsfa-meta);
+}
+
+.progress-bar-danger {
+  background-color: var(--hsfa-alert);
+}
+
+/* Blocos de código e pré-formatação */
+pre, code {
+  background-color: var(--hsfa-bg-sec);
+  color: var(--hsfa-secondary);
+}
+
+/* Breadcrumbs */
+.breadcrumb {
+  background-color: var(--hsfa-bg-soft);
+}
+
+.breadcrumb-item.active {
+  color: var(--hsfa-primary);
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  color: var(--hsfa-gray);
+} 

@@ -1,0 +1,212 @@
+/**
+ * HSFA Override - Remove Dark Mode Completamente
+ * Sobrescreve qualquer regra de dark mode existente
+ */
+
+/* ===== NEUTRALIZAÇÃO COMPLETA DO DARK MODE ===== */
+[data-theme="dark"],
+.dark,
+.theme-dark,
+html.dark,
+body.dark,
+:root[data-theme="dark"] {
+    /* Sobrescrever todas as variáveis com tema claro */
+    --bg-body: #FFFFFF !important;
+    --bg-card: #FFFFFF !important;
+    --text-color: #060606 !important;
+    --hsfa-text-soft: #060606 !important;
+    --hsfa-text-muted: #828282 !important;
+    --heading-primary: #2E3A55 !important;
+    --heading-secondary: #2E3A55 !important;
+    --border-color: #CBE9E7 !important;
+    --border-light: #CBE9E7 !important;
+    --input-bg: #FFFFFF !important;
+    --input-border: #CBE9E7 !important;
+    --sidebar-bg: #FFFFFF !important;
+    --sidebar-hover: #01717B !important;
+    --sidebar-active: rgba(1, 113, 123, 0.1) !important;
+    --card-shadow: 0 2px 4px rgba(1, 113, 123, 0.1) !important;
+    --card-hover-shadow: 0 4px 8px rgba(1, 113, 123, 0.15) !important;
+    
+    /* Forçar fundo e texto */
+    background-color: #FFFFFF !important;
+    color: #060606 !important;
+    color-scheme: light !important;
+}
+
+/* Forçar tema claro em elementos específicos */
+[data-theme="dark"] body,
+.dark body,
+.theme-dark body {
+    background-color: #FFFFFF !important;
+    color: #060606 !important;
+}
+
+[data-theme="dark"] .card,
+[data-theme="dark"] .hsfa-card,
+[data-theme="dark"] .dashboard-card,
+.dark .card,
+.dark .hsfa-card,
+.dark .dashboard-card {
+    background-color: #FFFFFF !important;
+    color: #060606 !important;
+    border-color: #CBE9E7 !important;
+}
+
+[data-theme="dark"] .sidebar,
+.dark .sidebar {
+    background-color: #FFFFFF !important;
+    color: #060606 !important;
+    border-color: #CBE9E7 !important;
+}
+
+[data-theme="dark"] .navbar,
+[data-theme="dark"] .hsfa-header,
+.dark .navbar,
+.dark .hsfa-header {
+    background-color: #FFFFFF !important;
+    color: #060606 !important;
+}
+
+/* Neutralizar todas as regras de dark mode existentes */
+[data-theme="dark"] .hsfa-alert-success {
+    background-color: #d4edda !important;
+    border-color: #c3e6cb !important;
+    color: #155724 !important;
+}
+
+[data-theme="dark"] .hsfa-alert-danger {
+    background-color: #f8d7da !important;
+    border-color: #f5c6cb !important;
+    color: #721c24 !important;
+}
+
+[data-theme="dark"] .hsfa-alert-warning {
+    background-color: #fff3cd !important;
+    border-color: #ffeaa7 !important;
+    color: #856404 !important;
+}
+
+[data-theme="dark"] .hsfa-alert-info {
+    background-color: #d1ecf1 !important;
+    border-color: #bee5eb !important;
+    color: #0c5460 !important;
+}
+
+/* Remover ícones de tema escuro */
+.dark-icon,
+[data-theme="dark"] .light-icon {
+    display: none !important;
+}
+
+.light-icon,
+[data-theme="dark"] .dark-icon {
+    display: inline-block !important;
+}
+
+/* Forçar links com cores HSFA */
+[data-theme="dark"] a,
+.dark a {
+    color: #01717B !important;
+}
+
+[data-theme="dark"] a:hover,
+.dark a:hover {
+    color: #015c64 !important;
+}
+
+/* Forçar botões com cores HSFA */
+[data-theme="dark"] .btn-primary,
+.dark .btn-primary {
+    background-color: #01717B !important;
+    border-color: #01717B !important;
+    color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .btn-primary:hover,
+.dark .btn-primary:hover {
+    background-color: #015c64 !important;
+    border-color: #015c64 !important;
+    color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .btn-secondary,
+.dark .btn-secondary {
+    background-color: #2E3A55 !important;
+    border-color: #2E3A55 !important;
+    color: #FFFFFF !important;
+}
+
+/* Forçar formulários */
+[data-theme="dark"] .form-control,
+[data-theme="dark"] input,
+[data-theme="dark"] textarea,
+[data-theme="dark"] select,
+.dark .form-control,
+.dark input,
+.dark textarea,
+.dark select {
+    background-color: #FFFFFF !important;
+    color: #060606 !important;
+    border-color: #CBE9E7 !important;
+}
+
+[data-theme="dark"] .form-control:focus,
+[data-theme="dark"] input:focus,
+[data-theme="dark"] textarea:focus,
+[data-theme="dark"] select:focus,
+.dark .form-control:focus,
+.dark input:focus,
+.dark textarea:focus,
+.dark select:focus {
+    border-color: #01717B !important;
+    box-shadow: 0 0 0 2px rgba(1, 113, 123, 0.2) !important;
+}
+
+/* Forçar tabelas */
+[data-theme="dark"] .table,
+.dark .table {
+    background-color: #FFFFFF !important;
+    color: #060606 !important;
+}
+
+[data-theme="dark"] .table thead th,
+.dark .table thead th {
+    background-color: #CBE9E7 !important;
+    color: #2E3A55 !important;
+    border-color: #01717B !important;
+}
+
+[data-theme="dark"] .table tbody tr:hover,
+.dark .table tbody tr:hover {
+    background-color: rgba(203, 233, 231, 0.3) !important;
+}
+
+/* Remover qualquer media query de dark mode */
+@media (prefers-color-scheme: dark) {
+    * {
+        color-scheme: light !important;
+    }
+    
+    html,
+    body,
+    [data-theme="dark"],
+    .dark {
+        background-color: #FFFFFF !important;
+        color: #060606 !important;
+    }
+}
+
+/* Neutralizar toggles de tema */
+.theme-toggle,
+#theme-toggle,
+.dark-mode-toggle {
+    display: none !important;
+}
+
+/* Sobrescrever qualquer estilo inline de dark mode */
+[style*="dark"],
+[style*="background: #"] {
+    background-color: #FFFFFF !important;
+    color: #060606 !important;
+}

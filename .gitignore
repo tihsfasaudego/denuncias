@@ -1,0 +1,54 @@
+# Arquivo .env com informações sensíveis
+.env
+.env.*
+
+# Logs
+logs/
+*.log
+
+# Cache
+storage/cache/
+storage/temp/
+storage/assets/
+
+# Uploads
+public/uploads/*
+!public/uploads/.gitkeep
+
+# Configurações locais
+config/local.php
+config/production.php
+
+# Arquivos de backup
+*.backup
+*.bak
+*.sql
+
+# Arquivos temporários
+*.tmp
+*.temp
+*~
+
+# Dependências
+vendor/
+node_modules/
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Arquivos de teste
+*test*.php
+*debug*.php
+phpinfo.php
+info.php
+
+# Certificados SSL
+*.crt
+*.key
+*.pem
+
+# Composer
+composer.lock

@@ -1,0 +1,687 @@
+/* Responsividade Mobile - Sistema HSFA */
+
+/* ===== BREAKPOINTS ===== */
+/* Mobile: 0-767px */
+/* Tablet: 768px-1023px */
+/* Desktop: 1024px+ */
+
+/* ===== BASE MOBILE FIRST ===== */
+.container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* ===== NAVEGAÇÃO MOBILE ===== */
+@media (max-width: 767px) {
+    .navbar {
+        padding: 0.5rem 0;
+    }
+    
+    .navbar-brand {
+        font-size: 1.125rem;
+    }
+    
+    .navbar-logo {
+        max-height: 35px;
+    }
+    
+    .nav-link {
+        padding: 0.75rem 1rem !important;
+        font-size: 1rem;
+        border-bottom: 1px solid var(--color-border-primary);
+    }
+    
+    .nav-link:last-child {
+        border-bottom: none;
+    }
+    
+    /* Menu hambúrguer se necessário */
+    .navbar-toggler {
+        border: none;
+        padding: 0.25rem 0.5rem;
+        font-size: 1.25rem;
+        background: none;
+        color: var(--color-text-light);
+    }
+    
+    .navbar-toggler:focus {
+        box-shadow: none;
+        outline: 2px solid var(--color-border-focus);
+    }
+}
+
+/* ===== CARDS MOBILE ===== */
+@media (max-width: 767px) {
+    .card {
+        margin-bottom: 1rem;
+        border-radius: var(--border-radius-lg);
+    }
+    
+    .card-header {
+        padding: 1rem;
+        font-size: 1rem;
+    }
+    
+    .card-body {
+        padding: 1rem;
+    }
+    
+    .card-footer {
+        padding: 1rem;
+    }
+    
+    .card-title {
+        font-size: 1.25rem;
+        margin-bottom: 0.75rem;
+    }
+}
+
+/* ===== FORMULÁRIOS MOBILE ===== */
+@media (max-width: 767px) {
+    .form-control,
+    .form-select {
+        font-size: 16px; /* Evita zoom no iOS */
+        padding: 0.75rem 1rem;
+        border-radius: var(--border-radius-md);
+    }
+    
+    .form-label {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+    
+    .btn {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .btn-group .btn {
+        width: auto;
+        margin-bottom: 0;
+    }
+    
+    /* Botões em linha em mobile */
+    .btn-group-mobile {
+        display: flex;
+        gap: 0.5rem;
+    }
+    
+    .btn-group-mobile .btn {
+        flex: 1;
+        margin-bottom: 0;
+    }
+}
+
+/* ===== TABELAS MOBILE ===== */
+@media (max-width: 767px) {
+    .table-responsive {
+        border: none;
+        border-radius: var(--border-radius-lg);
+        overflow: hidden;
+    }
+    
+    .table {
+        margin-bottom: 0;
+    }
+    
+    .table thead {
+        display: none;
+    }
+    
+    .table tbody,
+    .table tr,
+    .table td {
+        display: block;
+        width: 100%;
+    }
+    
+    .table tr {
+        background: var(--color-bg-card);
+        border: 1px solid var(--color-border-primary);
+        border-radius: var(--border-radius-md);
+        margin-bottom: 1rem;
+        padding: 1rem;
+        box-shadow: var(--shadow-sm);
+    }
+    
+    .table td {
+        border: none;
+        padding: 0.5rem 0;
+        position: relative;
+        padding-left: 50%;
+    }
+    
+    .table td:before {
+        content: attr(data-label) ": ";
+        position: absolute;
+        left: 0;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        font-weight: var(--font-weight-semibold);
+        color: var(--color-text-secondary);
+    }
+    
+    .table td:last-child {
+        border-bottom: none;
+    }
+    
+    /* Badges em mobile */
+    .table .badge {
+        font-size: 0.75rem;
+        padding: 0.25rem 0.5rem;
+    }
+}
+
+/* ===== DASHBOARD MOBILE ===== */
+@media (max-width: 767px) {
+    .dashboard-card {
+        margin-bottom: 1rem;
+    }
+    
+    .dashboard-card .card-title {
+        font-size: 1.125rem;
+    }
+    
+    .dashboard-card .display-4 {
+        font-size: 2rem;
+    }
+    
+    .dashboard-card .display-5 {
+        font-size: 1.5rem;
+    }
+    
+    .dashboard-card .display-6 {
+        font-size: 1.25rem;
+    }
+}
+
+/* ===== GRID SYSTEM MOBILE ===== */
+@media (max-width: 767px) {
+    .row {
+        margin: 0 -0.5rem;
+    }
+    
+    .col,
+    [class*="col-"] {
+        padding: 0 0.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .col-12 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    
+    .col-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+    
+    .col-4 {
+        flex: 0 0 33.333333%;
+        max-width: 33.333333%;
+    }
+    
+    .col-3 {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+}
+
+/* ===== MODAIS MOBILE ===== */
+@media (max-width: 767px) {
+    .modal-dialog {
+        margin: 0.5rem;
+        max-width: calc(100% - 1rem);
+    }
+    
+    .modal-content {
+        border-radius: var(--border-radius-lg);
+    }
+    
+    .modal-header {
+        padding: 1rem;
+    }
+    
+    .modal-body {
+        padding: 1rem;
+    }
+    
+    .modal-footer {
+        padding: 1rem;
+        flex-direction: column;
+    }
+    
+    .modal-footer .btn {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+    
+    .modal-footer .btn:last-child {
+        margin-bottom: 0;
+    }
+}
+
+/* ===== ALERTAS MOBILE ===== */
+@media (max-width: 767px) {
+    .alert {
+        margin: 0.5rem;
+        padding: 1rem;
+        border-radius: var(--border-radius-md);
+        font-size: 0.9rem;
+    }
+    
+    .alert-dismissible .btn-close {
+        padding: 0.5rem;
+        font-size: 1.25rem;
+    }
+}
+
+/* ===== FOOTER MOBILE ===== */
+@media (max-width: 767px) {
+    .footer {
+        padding: 2rem 0 1rem 0;
+        text-align: center;
+    }
+    
+    .footer .row {
+        margin: 0;
+    }
+    
+    .footer .col {
+        margin-bottom: 2rem;
+        padding: 0;
+    }
+    
+    .footer h3 {
+        font-size: 1.125rem;
+        margin-bottom: 1rem;
+    }
+    
+    .footer ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .footer li {
+        margin-bottom: 0.5rem;
+    }
+    
+    .footer a {
+        color: var(--color-text-light);
+        text-decoration: none;
+    }
+    
+    .footer a:hover {
+        text-decoration: underline;
+    }
+}
+
+/* ===== UTILITÁRIOS MOBILE ===== */
+@media (max-width: 767px) {
+    .d-mobile-none {
+        display: none !important;
+    }
+    
+    .d-mobile-block {
+        display: block !important;
+    }
+    
+    .d-mobile-flex {
+        display: flex !important;
+    }
+    
+    .text-mobile-center {
+        text-align: center !important;
+    }
+    
+    .text-mobile-left {
+        text-align: left !important;
+    }
+    
+    .text-mobile-right {
+        text-align: right !important;
+    }
+    
+    .w-mobile-100 {
+        width: 100% !important;
+    }
+    
+    .h-mobile-auto {
+        height: auto !important;
+    }
+    
+    .p-mobile-0 {
+        padding: 0 !important;
+    }
+    
+    .p-mobile-1 {
+        padding: 0.25rem !important;
+    }
+    
+    .p-mobile-2 {
+        padding: 0.5rem !important;
+    }
+    
+    .p-mobile-3 {
+        padding: 0.75rem !important;
+    }
+    
+    .p-mobile-4 {
+        padding: 1rem !important;
+    }
+    
+    .m-mobile-0 {
+        margin: 0 !important;
+    }
+    
+    .m-mobile-1 {
+        margin: 0.25rem !important;
+    }
+    
+    .m-mobile-2 {
+        margin: 0.5rem !important;
+    }
+    
+    .m-mobile-3 {
+        margin: 0.75rem !important;
+    }
+    
+    .m-mobile-4 {
+        margin: 1rem !important;
+    }
+    
+    .mb-mobile-0 {
+        margin-bottom: 0 !important;
+    }
+    
+    .mb-mobile-1 {
+        margin-bottom: 0.25rem !important;
+    }
+    
+    .mb-mobile-2 {
+        margin-bottom: 0.5rem !important;
+    }
+    
+    .mb-mobile-3 {
+        margin-bottom: 0.75rem !important;
+    }
+    
+    .mb-mobile-4 {
+        margin-bottom: 1rem !important;
+    }
+}
+
+/* ===== MELHORIAS DE TOUCH ===== */
+@media (max-width: 767px) {
+    /* Tamanho mínimo para elementos tocáveis */
+    button,
+    input,
+    select,
+    textarea,
+    a,
+    [role="button"] {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    /* Melhor espaçamento para botões */
+    .btn {
+        padding: 0.75rem 1rem;
+        font-size: 1rem;
+    }
+    
+    /* Melhor contraste para links */
+    a {
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 2px;
+    }
+    
+    a:hover {
+        text-decoration-thickness: 2px;
+    }
+    
+    /* Melhor foco para elementos interativos */
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible,
+    a:focus-visible {
+        outline: 2px solid var(--color-border-focus);
+        outline-offset: 2px;
+        border-radius: var(--border-radius-sm);
+    }
+}
+
+/* ===== ORIENTAÇÃO LANDSCAPE ===== */
+@media (max-width: 767px) and (orientation: landscape) {
+    .navbar {
+        padding: 0.25rem 0;
+    }
+    
+    .navbar-logo {
+        max-height: 30px;
+    }
+    
+    .card-body {
+        padding: 0.75rem;
+    }
+    
+    .modal-dialog {
+        margin: 0.25rem;
+    }
+}
+
+/* ===== MELHORIAS DE PERFORMANCE ===== */
+@media (max-width: 767px) {
+    /* Reduzir animações em dispositivos com pouca performance */
+    @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+        }
+    }
+    
+    /* Melhorar renderização */
+    .card,
+    .btn,
+    .form-control {
+        will-change: transform;
+    }
+}
+
+/* ===== ACESSIBILIDADE MOBILE ===== */
+@media (max-width: 767px) {
+    /* Melhor contraste para texto pequeno */
+    .small,
+    .text-muted {
+        font-size: 0.875rem;
+        line-height: 1.4;
+    }
+    
+    /* Melhor espaçamento para leitura */
+    p {
+        line-height: 1.6;
+        margin-bottom: 1rem;
+    }
+    
+    /* Melhor contraste para links */
+    a:not(.btn) {
+        color: var(--color-primary);
+        font-weight: var(--font-weight-medium);
+    }
+    
+    /* Melhor contraste para botões */
+    .btn {
+        font-weight: var(--font-weight-semibold);
+        text-shadow: none;
+    }
+    
+    /* Melhor contraste para badges */
+    .badge {
+        font-weight: var(--font-weight-semibold);
+        text-shadow: none;
+    }
+}
+
+/* ===== NOTIFICAÇÕES MOBILE ===== */
+@media (max-width: 767px) {
+    .notification-container {
+        top: 0.5rem;
+        right: 0.5rem;
+        left: 0.5rem;
+        max-width: none;
+    }
+    
+    .notification {
+        margin-bottom: 0.5rem;
+        padding: 0.75rem;
+    }
+    
+    .notification-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .notification-icon {
+        margin-right: 0;
+        margin-bottom: 0.5rem;
+    }
+    
+    .notification-actions {
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+    
+    .notification-actions .btn {
+        flex: 1;
+        margin-bottom: 0.25rem;
+    }
+}
+
+/* ===== LOADING MOBILE ===== */
+@media (max-width: 767px) {
+    .loading-overlay {
+        background: rgba(255, 255, 255, 0.95);
+    }
+    
+    .loading-spinner {
+        text-align: center;
+    }
+    
+    .loading-spinner .spinner {
+        width: 32px;
+        height: 32px;
+        border-width: 3px;
+    }
+    
+    .loading-spinner div {
+        font-size: 0.9rem;
+        margin-top: 0.75rem;
+    }
+}
+
+/* ===== MELHORIAS ESPECÍFICAS PARA O SISTEMA HSFA ===== */
+@media (max-width: 767px) {
+    /* Página inicial */
+    .hero-section {
+        padding: 2rem 0;
+        text-align: center;
+    }
+    
+    .hero-section h1 {
+        font-size: 1.75rem;
+        margin-bottom: 1rem;
+    }
+    
+    .hero-section p {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    /* Cards de funcionalidades */
+    .feature-card {
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+    
+    .feature-card .card-body {
+        padding: 1.5rem 1rem;
+    }
+    
+    .feature-card h3 {
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+    }
+    
+    .feature-card p {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+    }
+    
+    /* Formulário de denúncia */
+    .denuncia-form .form-group {
+        margin-bottom: 1.5rem;
+    }
+    
+    .denuncia-form .form-label {
+        font-size: 1rem;
+        font-weight: var(--font-weight-semibold);
+    }
+    
+    .denuncia-form .form-control {
+        font-size: 16px; /* Evita zoom no iOS */
+    }
+    
+    .denuncia-form .btn {
+        width: 100%;
+        padding: 0.875rem 1rem;
+        font-size: 1rem;
+        font-weight: var(--font-weight-semibold);
+    }
+    
+    /* Tabela de denúncias */
+    .denuncias-table {
+        font-size: 0.875rem;
+    }
+    
+    .denuncias-table .badge {
+        font-size: 0.75rem;
+        padding: 0.25rem 0.5rem;
+    }
+    
+    /* Dashboard administrativo */
+    .admin-dashboard .dashboard-card {
+        margin-bottom: 1rem;
+    }
+    
+    .admin-dashboard .card-title {
+        font-size: 1.125rem;
+    }
+    
+    .admin-dashboard .display-4 {
+        font-size: 2rem;
+    }
+    
+    .admin-dashboard .display-5 {
+        font-size: 1.5rem;
+    }
+    
+    .admin-dashboard .display-6 {
+        font-size: 1.25rem;
+    }
+}
